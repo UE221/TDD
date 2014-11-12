@@ -1,6 +1,8 @@
 <?php
 namespace Cvtic\Bundle\TddDemoBundle\Util;
 
+use \InvalidArgumentException;
+
 /**
  * Bibliothèque qui gère les fonctions de calcul de base.
  *
@@ -12,8 +14,17 @@ class Calculator {
      * 
      * @param numeric $a
      * @param numeric $b
+     * @return numeric
      */
     public function sum($a, $b) {
+        if(!is_numeric($a)) {
+            throw new InvalidArgumentException('Le premier argument doit être numérique.');
+        }
+        
+        if(!is_numeric($b)) {
+            throw new InvalidArgumentException('Le second argument doit être numérique.');
+        }
+        
         return $a + $b;
     }
 }
