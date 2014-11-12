@@ -19,4 +19,13 @@ class CalculatorTest extends \PHPUnit_Framework_TestCase {
         $this->assertEquals(5, $result);
     }
     
+    /**
+     * Test unitaire de l'échec de la méthode sum.
+     */
+    public function testSumFailure() {
+        $calculator = new Calculator();
+        $result = $calculator->sum(2, "a");
+        // Controle à effectuer.
+        $this->assertEquals(5, $result);
+    }
 }
