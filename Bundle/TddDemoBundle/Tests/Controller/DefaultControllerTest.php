@@ -3,15 +3,15 @@
 namespace Cvtic\Bundle\TddDemoBundle\Tests\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
+use Symfony\Component\HttpFoundation\Response;
 
 class DefaultControllerTest extends WebTestCase
 {
-    public function testIndex()
+    public function testContact()
     {
         $client = static::createClient();
 
-        $crawler = $client->request('GET', '/hello/Fabien');
-
-        $this->assertTrue($crawler->filter('html:contains("Hello Fabien")')->count() > 0);
+        $crawler = $client->request('GET', '/contact');
+        
     }
 }

@@ -13,7 +13,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 class ContactType extends AbstractType {
     
     public function buildForm(FormBuilderInterface $builder, array $options) {
-        $builder->add('name');
+        $builder->add('name', 'text', array('label' => 'Nom'));
         $builder->add('email', 'email');
     }
     

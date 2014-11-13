@@ -1,23 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset={{ _charset }}"/>
+        <meta name="robots" content="noindex,nofollow" />
+        <title>{% block title %}{% endblock %}</title>
+        <link href="{{ asset('bundles/framework/css/structure.css', absolute=true) }}" rel="stylesheet" type="text/css" media="all" />
+        <link href="{{ asset('bundles/framework/css/body.css', absolute=true) }}" rel="stylesheet" type="text/css" media="all" />
+        {% block head %}{% endblock %}
+    </head>
+    <body>
+        <div id="content">
+            <div class="header clear-fix">
+            </div>
 
-{% block head %}
-<link rel="icon" sizes="16x16" href="{{ asset('favicon.ico') }}" />
-<link rel="stylesheet" href="{{ asset('bundles/acmedemo/css/demo.css') }}" />
-{% endblock %}
-{% block title 'Demo Bundle' %}
-{% block body %}
-{% for flashMessage in app.session.flashbag.get('notice') %}
-<div class="flash-message">
-<em>Notice</em>: {{ flashMessage }}
-</div>
-{% endfor %}
+            <div class="sf-reset">
+            {% block body %}
+                {% for flashMessage in app.session.flashbag.get('notice') %}
+                    <div class="flash-message">
+                        {{ flashMessage }}
+                    </div>
+                {% endfor %}
 
-<div class="block">
-{% block content %}{% endblock %}
-</div>
-{% if code is defined %}
-<h2>Code behind this page</h2>
-<div class="block">
-<div class="symfony-content">{{ code|raw }}</div>
-</div>
-{% endif %}
-{% endblock %}
+                <div class="block">
+                    {% block content %}{% endblock %}
+                </div>
+            {% endblock %}
+            
+            </div>
+        </div>
+    </body>
+</html>
