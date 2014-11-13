@@ -31,7 +31,7 @@ class DefaultController extends Controller
         
         if ($form->isValid()) {
             $contact = $form->getData();
-            $request->getSession()->getFlashBag()->set('notice', 'Ajout du contact : ' . $contact['name'] . " - " . $contact['email']);
+            $request->getSession()->getFlashBag()->set('notice', 'Ajout du contact : ' . $contact['name']);
             return new RedirectResponse($this->generateUrl('_demo_contact'));
         }
         
